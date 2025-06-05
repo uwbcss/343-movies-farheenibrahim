@@ -17,8 +17,8 @@ public:
 
   int getID() const;
   string getName() const;
-  string getFirstName() const; // NEW
-  string getLastName() const;  // NEW
+  string getFirstName() const; 
+  string getLastName() const;  
 
 private:
   int CustomerID;

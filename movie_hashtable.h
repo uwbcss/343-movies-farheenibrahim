@@ -1,19 +1,23 @@
-#ifndef MOVIEHASHTABLE_H
-#define MOVIEHASHTABLE_H
+#ifndef MOVIE_HASHTABLE_H
+#define MOVIE_HASHTABLE_H
 
 #include "movie.h"
+#include <stdexcept>
 #include <vector>
 
 class MovieHashTable {
-private:
-  std::vector<Movie *> table[3]; // F = 0, D = 1, C = 2
-
-  static int genreIndex(char genre);
-
 public:
+  MovieHashTable() = default;
+  ~MovieHashTable();
+
   void insert(Movie *m);
-  std::vector<Movie *> &getCategory(char genre);
   Movie *find(char genre, Movie *key);
+  std::vector<Movie *> &getCategory(char genre);
+
+private:
+  static int genreIndex(char genre);
+  std::vector<Movie *>
+      table[3]; 
 };
 
-#endif
+#endif 

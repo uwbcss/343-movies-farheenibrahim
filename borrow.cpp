@@ -8,15 +8,19 @@
 #include <iostream>
 #include <sstream>
 using namespace std;
+// Constructor: Parses a Borrow command from the given input stream.
+// Initializes a movie object based on genre and sorting keys.
 Borrow::Borrow(istream &stream) : movie(nullptr) {
   char mediaType;
   char genre;
   stream >> customerID >> mediaType >> genre;
+  // Check if media type is supported (currently only 'D' for DVD)
   if (mediaType != 'D') {
     cout << "ERROR: Unsupported media type: " << mediaType << endl;
     return;
   }
 #ifdef INCLUDE_COMEDY
+  // Parse Comedy: title, year, then director
   if (genre == 'F') {
     string title;
     string director;
@@ -29,26 +33,32 @@ Borrow::Borrow(istream &stream) : movie(nullptr) {
     movie = new Comedy(1, director, title, year);
   } else
 #endif
-      if (genre == 'D') {
-    string director;
-    string title;
-    getline(stream, director, ',');
-    getline(stream, title, ',');
-    director.erase(0, director.find_first_not_of(" \t"));
-    title.erase(0, title.find_first_not_of(" \t"));
-    movie = new Drama(1, director, title, 0);
-  } else if (genre == 'C') {
-    int month;
-    int year;
-    string actorFirst;
-    string actorLast;
-    stream >> month >> year >> actorFirst >> actorLast;
-    movie = new Classic(1, "", "", month, year, actorFirst + " " + actorLast);
-  } else {
-    cout << "ERROR: Unknown genre type: " << genre << endl;
-  }
+    // Parse Drama: director, title
+    if (genre == 'D') {
+      string director;
+      string title;
+      getline(stream, director, ',');
+      getline(stream, title, ',');
+      director.erase(0, director.find_first_not_of(" \t"));
+      title.erase(0, title.find_first_not_of(" \t"));
+      movie =
+          new Drama(1, director, title, 0); // year not needed for comparison
+    } else if (genre == 'C') {
+      int month;
+      int year;
+      string actorFirst;
+      string actorLast;
+      stream >> month >> year >> actorFirst >> actorLast;
+      movie = new Classic(1, "", "", month, year, actorFirst + " " + actorLast);
+    } else {
+      cout << "ERROR: Unknown genre type: " << genre << endl;
+    }
 }
+// Destructor: Frees dynamically allocated movie pointer
 Borrow::~Borrow() { delete movie; }
+// Executes the Borrow command:
+// Finds the movie in inventory, decrements stock if available,
+// and adds the transaction to the customer's history.
 void Borrow::execute(StoreManager &store) {
   if (movie == nullptr) {
     return;
@@ -65,12 +75,15 @@ void Borrow::execute(StoreManager &store) {
     cout << "Borrow failed: Movie not available or not found." << endl;
   }
 }
+// Displays the borrow command and associated movie details
 void Borrow::display() const {
   cout << "Borrow command for customer " << customerID << endl;
   if (movie != nullptr) {
     movie->display();
   }
 }
+// Creates a deep copy (clone) of this Borrow command.
+// Used when adding to customer history.
 Command *Borrow::clone() const {
   stringstream ss;
   ss << customerID << " D " << movie->getGenre() << " ";
@@ -87,6 +100,7 @@ Command *Borrow::clone() const {
   }
   return new Borrow(ss);
 }
+// Static registration of the Borrow command in the CommandFactory
 namespace {
 bool registered = []() {
   CommandFactory::registerType('B', [](istream &s) { return new Borrow(s); });

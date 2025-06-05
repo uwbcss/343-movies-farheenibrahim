@@ -26,33 +26,33 @@ Borrow: TODO(student)
 Return: TODO(student)
 
 
-Q: -1 for each compilation warning, min -3: 0 all complies 
+Q: -1 for each compilation warning, min -3: 0 All Complies 
 
 - Check under *1. Compiles without warnings*
 - If the warning message is addressed in README.md, including how the programmer tried to address it, no deductions
 
-Q: -1 for each clang-tidy warning, min -3: 0 no clang-tidy warnings 
+Q: -1 for each clang-tidy warning, min -3: 0 No clang-tidy warnings 
 
 - Check under *3. clang-tidy warnings*
 - If the warning message is addressed in README.md, including how the programmer tried to address it, no deductions
 
-Q: -1 for each clang-format warning, min -3: 0 no clang-format errors
+Q: -1 for each clang-format warning, min -3: 0 No clang-format errors
 
 - Check under *4. clang-format does not find any formatting issues*
 
 
-Q: -2 for any detected memory leak: 0 no memory leaks
+Q: -2 for any detected memory leak: 0 No memory leaks
 
 - Check under *5. No memory leaks using g++*
 - Check under *6. No memory leaks using valgrind*
 
-Q: Do the tests sufficiently test the code: 0 all code tests 
+Q: Do the tests sufficiently test the code: 0 All code tests 
 
 - -1 for each large block of code not executed
 - -2 for each function that is never called when testing
 - Check under *7. Tests have full code coverage* paying attention to *The lines below were never executed*
 
-Q: Are all functions in .h and .cpp file documents (min -3): ENTER_NUMBER
+Q: Are all functions in .h and .cpp file documents (min -3): All functions documented
 
 - -1 for each function not documented
 
@@ -60,45 +60,49 @@ Q: Are all functions in .h and .cpp file documents (min -3): ENTER_NUMBER
 
 State the file and function where the information can be found
 
-invalid command code: TODO(student)
+invalid command code: CommandFactory.cpp → createCommand()
 
-invalid movie type: TODO(student)
+invalid movie type: MovieFactory.cpp → createMovie()
 
-invalid customer ID: TODO(student)
- 
-invalid movie: TODO(student)
+invalid customer ID: StoreManager.cpp → processCommand() (calls CustomerManager::getCustomer())
 
-factory classes: TODO(student)
+invalid movie: StoreManager.cpp → handleBorrow() and handleReturn()
+(errors triggered in MovieHashTable::retrieve() if movie not found)
 
-hashtable: TODO(student) (explain what the hashtable is used for)
+factory classes: MovieFactory and CommandFactory both use self-registration for extensibility
 
-container used for comedy movies: TODO(student)
+hashtable: movie_hashtable files used to display the genre of the movie 
 
-function for sorting comedy movies: TODO(student)
+container used for comedy movies: std::vector<Movie*> inside MovieHashTable for genre 'F'
 
-function where comedy movies are sorted: TODO(student)
+function for sorting comedy movies: Comedy::operator<() and sorting done in MovieHashTable::printGenre('F')
 
-functions called when retrieving a comedy movie based on title and year: TODO(student)
+function where comedy movies are sorted: MovieHashTable::printGenre() sorts std::vector<Movie*> using std::sort()
 
-functions called for retrieving and printing customer history: TODO(student)
+functions called when retrieving a comedy movie based on title and year: Comedy::create() → for building temp movie
+MovieHashTable::retrieve() → for retrieval
 
-container used for customer history: TODO(student)
+functions called for retrieving and printing customer history: StoreManager::handleHistory() →
+calls Customer::printHistory()
 
-functions called when borrowing a movie: TODO(student)
+container used for customer history: std::vector<Command*> in each Customer object
 
-explain borrowing a movie that does not exist: TODO(student)
+functions called when borrowing a movie: StoreManager::handleBorrow() →
+calls Customer::addHistory() and Movie::decreaseStock()
 
-explain borrowing a movie that has 0 stock: TODO(student)
+explain borrowing a movie that does not exist: MovieHashTable::retrieve() returns false →
+error printed in StoreManager::handleBorrow()
 
-explain returning a movie that customer has not checked out: TODO(student)
+explain borrowing a movie that has 0 stock: Movie::decreaseStock() returns false if stock is 0 →
+error printed in handleBorrow()
 
-any static_cast or dynamic_cast used: TODO(student)
+explain returning a movie that customer has not checked out: Customer::hasBorrowed(movie) returns false →
+error printed in handleReturn()
+
+any static_cast or dynamic_cast used: Yes – dynamic_cast<Classic*>(movie) in command handlers to check genre-specific info (e.g., Classic month & actor)
 
 ## Bonus +5
 
-Are there multiple files, of the form runit-without-XXX, where the same set of files will compile and run excluding some of the commands or genres? TODO(student)
+Are there multiple files, of the form runit-without-XXX, where the same set of files will compile and run excluding some of the commands or genres? YES
 
-
-
-
-Q: Total points: ADD_ALL_POINTS (max 25 (+ 5 Bonus))
+Q: Total points: ADD_ALL_POINTS (max 25 (+ 5 Bonus)) TOTAL: 30 Points 

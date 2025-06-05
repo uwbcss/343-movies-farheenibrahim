@@ -44,11 +44,11 @@ void testStoreFinal() {
   cout << "Begin testStoreFinal" << std::endl;
   StoreManager store;
   std::cout << "Loading customers..." << std::endl;
-  store.loadCustomers("data4customers.txt");
+  store.loadCustomers("data4customers.txt");   // Load customer data from the file "data4customers.txt"
   std::cout << "Customers loaded." << std::endl;
-  store.loadMovies("data4movies.txt");
+  store.loadMovies("data4movies.txt");   // Load movie inventory data from the file "data4movies.txt"
   std::cout << "Movies loaded." << std::endl;
-  store.processCommands("data4commands.txt");
+  store.processCommands("data4commands.txt");   // Process all commands (borrow, return, inventory, history) from "data4commands.txt"
   std::cout << "Commands processed." << std::endl;
   cout << "=====================================" << endl;
 }

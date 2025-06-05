@@ -73,11 +73,19 @@ void StoreManager::loadMovies(const string &filename) {
     if (line.empty()) {
       continue;
     }
+
     char genre = line[0];
     if (line.length() > 2 && line[1] == ',') {
+      // Create a new Movie using the MovieFactory
       Movie *m = MovieFactory::createMovie(genre, line.substr(2));
       if (m != nullptr) {
-        inventory.insert(m);
+        // Check if movie already exists in the inventory
+        Movie *existing = inventory.find(m->getGenre(), m);
+        if (existing == nullptr) {
+          inventory.insert(m); // Store movie if not already present
+        } else {
+          delete m; // Prevent memory leak if duplicate
+        }
       }
     } else {
       cout << "Invalid movie line: " << line << endl;

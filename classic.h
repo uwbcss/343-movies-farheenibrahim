@@ -13,7 +13,6 @@ public:
   char getGenre() const override;
   Movie *clone() const override;
 
-  // Optional getters
   string getActor() const;
   int getMonth() const;
 
