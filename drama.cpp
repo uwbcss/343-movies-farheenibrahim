@@ -1,34 +1,3 @@
-// #include "drama.h"
-
-// Drama::Drama(int stock, const string &director, const string &title, int
-// year)
-//     : Movie(stock, director, title, year) {}
-
-// void Drama::display() const {
-//   cout << director << ", " << title << ", " << year << " (" << stock
-//        << ") - Drama" << endl;
-// }
-
-// bool Drama::equals(const Movie &other) const {
-//   const Drama *d = dynamic_cast<const Drama *>(&other);
-//   return d && director == d->director && title == d->title;
-// }
-
-// bool Drama::lessThan(const Movie &other) const {
-//   const Drama *d = dynamic_cast<const Drama *>(&other);
-//   if (!d) {
-//     return false;
-//   }
-//   return director < d->director ||
-//          (director == d->director && title < d->title);
-// }
-
-// char Drama::getGenre() const { return 'D'; }
-// Movie *Drama::clone() const {
-//   return new Drama(
-//       *this); // or new Classic(stock, director, title, month, year, actor);
-// }
-
 #include "drama.h"
 #include "movie_factory.h"
 #include <iostream>

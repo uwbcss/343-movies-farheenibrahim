@@ -1,13 +1,9 @@
-//
-
 #include "inventory.h"
 #include "command_factory.h"
 #include "store_manager.h"
 #include <iostream>
 
 using namespace std;
-
-// Inventory::Inventory() = default;
 
 void Inventory::execute(StoreManager &store) {
   for (char genre : {'F', 'D', 'C'}) {

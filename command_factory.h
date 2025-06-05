@@ -1,16 +1,3 @@
-// #ifndef COMMAND_FACTORY_H
-// #define COMMAND_FACTORY_H
-
-// #include "command.h"
-// #include <string>
-
-// class CommandFactory {
-// public:
-//   static Command *createCommand(const std::string &line);
-// };
-
-// #endif
-
 #ifndef COMMAND_FACTORY_H
 #define COMMAND_FACTORY_H
 

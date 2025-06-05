@@ -1,31 +1,3 @@
-// #include "customer.h"
-// #include "command.h"
-// #include <iostream>
-
-// using namespace std;
-
-// Customer::Customer(int id, string first, string last)
-//     : customerID(id), firstName(first), lastName(last) {}
-
-// Customer::~Customer() {}
-
-// void Customer::addToHistory(Command *cmd) { history.push_back(cmd); }
-
-// void Customer::displayHistory() const {
-//   cout << "History for " << firstName << " " << lastName << ":" << endl;
-//   if (history.empty()) {
-//     cout << "No history available." << endl;
-//   } else {
-//     for (const auto &cmd : history) {
-//       cmd->display();
-//     }
-//   }
-// }
-
-// int Customer::getID() const { return customerID; }
-
-// string Customer::getName() const { return firstName + " " + lastName; }
-
 #include "customer.h"
 #include "command.h"
 #include <iostream>

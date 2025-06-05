@@ -1,16 +1,3 @@
-// #ifndef MOVIE_FACTORY_H
-// #define MOVIE_FACTORY_H
-
-// #include "movie.h"
-// #include <string>
-
-// class MovieFactory {
-// public:
-//   static Movie *createMovie(char genre, const std::string &dataLine);
-// };
-
-// #endif
-
 #ifndef MOVIE_FACTORY_H
 #define MOVIE_FACTORY_H
 

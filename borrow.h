@@ -1,27 +1,3 @@
-// #ifndef BORROW_H
-// #define BORROW_H
-
-// #include "command.h"
-// #include <string>
-// using namespace std;
-
-// class Movie;
-
-// class Borrow : public Command {
-// private:
-//   Movie *movie;
-//   int customerID;
-
-// public:
-//   explicit Borrow(istream &stream);
-//   ~Borrow();
-//   void execute(StoreManager &store) override;
-//   void display() const override;
-//   Command *clone() const override;
-// };
-
-// #endif
-
 #ifndef BORROW_H
 #define BORROW_H
 

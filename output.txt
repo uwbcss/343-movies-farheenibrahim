@@ -1,14 +1,3 @@
-Wed Jun  4 23:14:15 PDT 2025
-Linux FarheensLaptop 5.15.167.4-microsoft-standard-WSL2 #1 SMP Tue Nov 5 00:21:55 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
-uid=1000(farheen) gid=1000(farheen) groups=1000(farheen),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),100(users),107(netdev),1001(docker)
-=====================================================
-1. If the section below is empty, the program compiles 
-   without warnings with -Wall -Wextra flags
-=====================================================
-=====================================================
-2. If the section below is empty or has the expected output 
-    the program puns and produces correct output
-=====================================================
 Start testStore1
 End testStore1
 Start testStore2
@@ -33,21 +22,13 @@ No history for Frog Freddie
 ==========================
 History for 8000 Wally Wacky:
 No history for Wacky Wally
-ERROR: Unknown genre type: F
-ERROR: Unknown genre type: F
-ERROR: Unknown genre type: F
 ERROR: Unknown genre type: Z
-ERROR: Unknown genre type: F
-ERROR: Unknown genre type: F
-ERROR: Unknown genre type: F
 ERROR: Malformed command line: "X"
 Failed to execute command: X
 ERROR: Unknown command type: Z
 Failed to execute command: Z 1000 D C 10 1941 Humphrey Bogart
-ERROR: Unknown genre type: F
-ERROR: Unknown genre type: F
 Borrow failed: Invalid customer ID 1234
-ERROR: Unknown genre type: F
+Borrow failed: Movie not available or not found.
 ERROR: Unsupported media type: Z
 Borrow failed: Movie not available or not found.
 Borrow failed: Movie not available or not found.
@@ -96,11 +77,21 @@ Borrow command for customer 5000
 ==========================
 History for 8000 Wally Wacky:
 Borrow command for customer 8000
+You've Got Mail, 1998,  (1) - Comedy
+Return command for customer 8000
+You've Got Mail, 1998,  (1) - Comedy
+Borrow command for customer 8000
 1971 3, Ruth Gordon, ,  (1) - Classics
 Borrow command for customer 8000
 1971 3, Ruth Gordon, ,  (1) - Classics
+Borrow command for customer 8000
+National Lampoon's Animal House, 1978,  (1) - Comedy
 ==========================
 History for 8888 Porky Pig:
+Borrow command for customer 8888
+Annie Hall, 1977,  (1) - Comedy
+Borrow command for customer 8888
+When Harry Met Sally, 1989,  (1) - Comedy
 Borrow command for customer 8888
 Jonathan Demme, Silence of the Lambs, 0 (1) - Drama
 Borrow command for customer 8888
@@ -110,95 +101,3 @@ Borrow command for customer 8888
 Commands processed.
 =====================================
 Done.
-=====================================================
-3. If the section below is empty, then there are no clang-tidy warnings 
-   (ignore warnings from system headers, such as "13554 warnings generated.")
-=====================================================
-[1/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/borrow.cpp.
-21736 warnings generated.
-[2/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/classic.cpp.
-43467 warnings generated.
-[3/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/comedy.cpp.
-65198 warnings generated.
-[4/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/command.cpp.
-65198 warnings generated.
-[5/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/command_factory.cpp.
-86973 warnings generated.
-[6/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/customer.cpp.
-102308 warnings generated.
-[7/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/drama.cpp.
-124039 warnings generated.
-[8/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/history.cpp.
-145776 warnings generated.
-[9/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/inventory.cpp.
-167240 warnings generated.
-[10/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/main.cpp.
-185409 warnings generated.
-[11/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/movie.cpp.
-199254 warnings generated.
-[12/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/movie_factory.cpp.
-221028 warnings generated.
-[13/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/movie_hashtable.cpp.
-236364 warnings generated.
-[14/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/return.cpp.
-258100 warnings generated.
-[15/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/store_manager.cpp.
-280614 warnings generated.
-[16/16] Processing file /home/farheen/CSS343/Movies Project/343-movies-farheenibrahim/store_test.cpp.
-301390 warnings generated.
-Suppressed 301390 warnings (301390 in non-user code).
-Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.
-=====================================================
-4. If the section below is empty, clang-format does not find any formatting issues
-   You can fix formatting errors using "clang-format -i <filename>" on command line
-=====================================================
-Running clang-format on ./borrow.cpp
-Running clang-format on ./classic.cpp
-Running clang-format on ./comedy.cpp
-Running clang-format on ./command.cpp
-Running clang-format on ./command_factory.cpp
-Running clang-format on ./customer.cpp
-Running clang-format on ./drama.cpp
-Running clang-format on ./history.cpp
-Running clang-format on ./inventory.cpp
-Running clang-format on ./main.cpp
-Running clang-format on ./movie.cpp
-Running clang-format on ./movie_factory.cpp
-Running clang-format on ./movie_hashtable.cpp
-Running clang-format on ./return.cpp
-Running clang-format on ./store_manager.cpp
-Running clang-format on ./store_test.cpp
-=====================================================
-5. If there are any memory leaks, it should be in the output below
-=====================================================
-=====================================================
-6. Using valgrind to check for memory leaks
-   Check for "definitely lost" in the output below
-=====================================================
-==200254== Memcheck, a memory error detector
-==200254== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==200254== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==200254== Command: ./a.out
-==200254== Parent PID: 199984
-==200254== 
-==200254== 
-==200254== HEAP SUMMARY:
-==200254==     in use at exit: 8,003 bytes in 127 blocks
-==200254==   total heap usage: 624 allocs, 497 frees, 154,435 bytes allocated
-==200254== 
-==200254== LEAK SUMMARY:
-==200254==    definitely lost: 3,832 bytes in 61 blocks
-==200254==    indirectly lost: 4,171 bytes in 66 blocks
-==200254==      possibly lost: 0 bytes in 0 blocks
-==200254==    still reachable: 0 bytes in 0 blocks
-==200254==         suppressed: 0 bytes in 0 blocks
-==200254== Rerun with --leak-check=full to see details of leaked memory
-==200254== 
-==200254== For lists of detected and suppressed errors, rerun with: -s
-==200254== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
-Wed Jun  4 23:15:16 PDT 2025
-=====================================================
-To create an output.txt file with all the output from this script
-Run the below command
-      ./create-output.sh > output.txt 2>&1 
-=====================================================

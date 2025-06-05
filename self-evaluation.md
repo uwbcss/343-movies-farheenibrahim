@@ -12,7 +12,7 @@ Q: Does the program compile and run to completion: Yes/No  YES
 - If the program does not compile or gives a segmentation error when run, 
 the maximum possible grade is 50%. No need to continue with the rest of self-evaluation
 
-Q: All public functions have been implemented: YES
+Q: All public functions have been implemented: YES all fully implemented 
 
 - -2 for each functionality not implemented
 
