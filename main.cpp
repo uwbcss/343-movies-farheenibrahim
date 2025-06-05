@@ -2,6 +2,8 @@
  * Driver for starting movie store tests
  */
 
+#include "store_manager.h" //added from
+
 #include <iostream>
 
 using namespace std;

@@ -1,0 +1,10 @@
+#!/bin/bash
+rm -f *.o a.out output.txt
+
+# Compile all files EXCEPT comedy.cpp
+g++ -std=c++17 -o a.out $(ls *.cpp | grep -v comedy.cpp) -Wno-unused-variable -Wno-unused-function
+
+# Run the program
+./a.out > output.txt 2>&1
+0
+

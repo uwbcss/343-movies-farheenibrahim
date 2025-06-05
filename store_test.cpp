@@ -5,11 +5,12 @@
  * @date 19 Jan 2019
  */
 
+#include "store_manager.h"
+#include <cassert>
+#include <fstream>
 #include <iostream>
 #include <map>
 #include <sstream>
-#include <fstream>
-#include <cassert>
 
 using namespace std;
 
@@ -40,8 +41,15 @@ void testStore2() {
 
 void testStoreFinal() {
   cout << "=====================================" << endl;
-  cout << "Start testStoreFinal" << endl;
-  cout << "End testStoreFinal" << endl;
+  cout << "Begin testStoreFinal" << std::endl;
+  StoreManager store;
+  std::cout << "Loading customers..." << std::endl;
+  store.loadCustomers("data4customers.txt");
+  std::cout << "Customers loaded." << std::endl;
+  store.loadMovies("data4movies.txt");
+  std::cout << "Movies loaded." << std::endl;
+  store.processCommands("data4commands.txt");
+  std::cout << "Commands processed." << std::endl;
   cout << "=====================================" << endl;
 }
 
